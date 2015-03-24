@@ -1,0 +1,9 @@
+2015-03-23 23:22:40,917  WARN [Worker-2] - ScalaProject - Project Wk2Ex2 has platform default sourceLevel.
+2015-03-23 23:22:40,931  WARN [Worker-2] - ScalaProject - Project Wk2Ex2 runs on platform default installation.
+2015-03-23 23:25:16,081  WARN [Worker-10] - ScalaProject - Project Wk2Ex2 has platform default sourceLevel.
+2015-03-23 23:25:16,083  WARN [Worker-10] - ScalaProject - Project Wk2Ex2 runs on platform default installation.
+2015-03-23 23:26:18,250  WARN [main] - org.scala-ide.sdt.core - org.scala-ide.sdt.core - org.scala-ide.sdt.core - 0 - Preference scala.compiler.sourceLevel was uninitialized for Wk2Ex2, setting default to 2.11.
+2015-03-23 23:34:11,332  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-23 23:34:25,751 ERROR [Worker-18] - System.err - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2015-03-23 23:34:25,751 ERROR [Worker-18] - System.err - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2015-03-23 23:34:25,751 ERROR [Worker-18] - System.err - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
