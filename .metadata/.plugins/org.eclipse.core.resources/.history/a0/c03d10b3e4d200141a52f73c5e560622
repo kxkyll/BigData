@@ -1,0 +1,130 @@
+/*Kati Kyllönen
+ * 011539913
+ * Big Data Framework
+ * Exercise set 2
+ * Exercise 2 Movies
+ * 
+ * Ratings:
+ * UserID::MovieID::Rating::Timestamp
+ * 
+ * Movies:
+ * MovieID::Title::Genres
+ * 
+ * Users:
+ * UserID::Gender::Age::Occupation::Zip-code
+ * 
+ * Target:
+ * RDD[(userID, gender, age, occupation, Set(movie, genre, rating))]
+ * Be sure that you choose correct data types, e.g., IDs are Integers. 
+ * 
+ */
+
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
+import org.apache.spark.SparkConf
+
+
+object Movies {
+  
+  def main (args: Array[String]){
+    val path = "/home/kati/foo/BDF/" // Path to files
+    val conf = new SparkConf().setAppName("Movies").setMaster("local[2]")
+    val sc = new SparkContext(conf)
+    // read the files as RDDs and cache them
+    val movies = sc.textFile(path+"movies.dat", 2).cache()
+    val users = sc.textFile(path+"users.dat", 2).cache()
+    val ratings = sc.textFile(path+"ratings.dat", 2).cache()
+    
+    /*
+    // split each movie, user and rating to own 
+    //val movieMap = movies.map { x => x.split("::")}
+    //val usersMap = users.map { x => x.split("::") }
+    //val ratingsMap = ratings.map { x => x.split("::") }
+    
+    // split each movie, user and rating and add keys to tuples
+    val moviePairs = movies.map(x => (x.split("::")(0), x))
+    
+    val userPairs = users.map(x => (x.split("::")(0), x))
+    //result: UserID, UserID::Gender::Age::Occupation::Zip-code
+    
+    val ratingsPairs = ratings.map(x => (x.split("::")(0), x))
+    
+    
+    //val up = users.map(x => (x.split("::")))
+    //println("---------------"+up.first());
+    
+    //val us = users.map(x => (x.split("::") (x(0)), x(1), x(2)))
+    //println ("-------------us: "+us.first())
+    
+    //val userP = users.map(x => (x.split("::").map(x => x.split("::")(x(0)),(x(1),x(2), x(3)))))
+   
+    
+    //val userPairsSplit = users.map(x => (x.split("::").map(x.split("::") (x(0)), (x(1), x(2), x(3)))))
+        
+    //println ("-------------user ._2: "+userPairs.first()._2)
+    
+    println ("-------------moviePairs: "+moviePairs.first())
+    println ("-------------userPairs: "+userPairs.first())
+    println ("-------------ratingPairs: "+ratingsPairs.first())
+    
+    val userKeyValue = userPairs.map(x => (x._2.split("::")(1),(2).toInt,(3).toInt))
+    println ("-------------userKeyValue: "+userKeyValue.first())    
+    
+    //val userKeyValue = userPairs.map(x => (x._2.split("::")(x(1)->(x))
+    
+    //val usersAndRatings = userPairs.++(ratingsPairs).groupByKey()
+    //val usersAndRatingsuu = usersAndRatings.map(x => x.swap);
+    
+    //println ("----------------------userAndRating: "+usersAndRatings.first())
+    //println ("----------------------userAndRatinguu: "+usersAndRatingsuu.first())
+  
+  */
+    val movieMap = movies.map { x => x.split("::")}
+    val usersMap = users.map { x => x.split("::") }
+    val ratingsMap = ratings.map { x => x.split("::") }
+    
+    val splittedUsersMap = users.map(line => line.split("::")).map(x => (x(0).toInt, (x(1), x(2).toInt, x(3).toInt)))
+     println ("........-----splittedUsersMap" +splittedUsersMap.first() )
+     //userId -> (gender, age, occupation) 
+    
+    val splittedMoviesMap = movies.map(line => line.split("::")).map(x => (x(0).toInt, (x(1), x(2)))) 
+     println ("........-----splittedMoviesMap" +splittedMoviesMap.first() )
+    // //movieId -> (Title, Genre)
+     
+    val splittedRatingsMap = ratings.map(line => line.split("::")).map(x => (x(1).toInt, (x(0).toInt, x(2).toInt, x(3).toInt))) 
+     println ("........-----splittedRatingsMap" +splittedRatingsMap.first() )
+     //movieId -> (UserId, Rating, Timestamp)
+   
+     val splittedRatingsMapByUser = ratings.map(line => line.split("::")).map(x => (x(0).toInt, (x(1).toInt, x(2).toInt, x(3).toInt))) 
+     println ("........-----splittedRatingsMap" +splittedRatingsMap.first() )
+     //userId -> (movieId, Rating, Timestamp)
+        
+     
+     val userWithRatings = splittedUsersMap.join(splittedRatingsMapByUser).groupByKey()
+    println ("------------.........userWithRatings:"+userWithRatings.first())
+    
+    val ratingsWithMovies = splittedRatingsMap.join(splittedMoviesMap)
+    println ("---------------------ratingsWithMovies: "+splittedRatingsMap.first())
+     
+     //val moviePairs = movies.map(x => (x.split("::")(0), x))
+    //val userPairs = users.map(x => (x.split("::")(0), x))
+    //val ratingsPairs = ratings.map(x => (x.split("::")(0), x))
+    
+    //println ("-------------user: "+userPairs.first())
+    //println ("-------------movie: "+moviePairs.first())
+    //println ("-------------rating: "+ratingsPairs.first())
+    
+    //val usersAndRatings = userPairs.++(ratingsPairs).groupByKey()
+    //val usersAndRatingsuu = usersAndRatings.map(x => x.swap);
+    
+    //println ("----------------------userAndRating: "+usersAndRatings.first())
+    //println ("----------------------userAndRatinguu: "+usersAndRatingsuu.first())
+        
+    
+    
+    
+      
+      
+  }
+
+}

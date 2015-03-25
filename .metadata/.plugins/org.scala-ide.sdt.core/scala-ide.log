@@ -7,3 +7,19 @@
 2015-03-23 23:34:25,751 ERROR [Worker-18] - System.err - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 2015-03-23 23:34:25,751 ERROR [Worker-18] - System.err - SLF4J: Defaulting to no-operation (NOP) logger implementation
 2015-03-23 23:34:25,751 ERROR [Worker-18] - System.err - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2015-03-24 22:40:23,008 ERROR [Worker-10] - System.err - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2015-03-24 22:40:23,011 ERROR [Worker-10] - System.err - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2015-03-24 22:40:23,011 ERROR [Worker-10] - System.err - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2015-03-25 00:13:29,201 ERROR [Worker-1] - System.err - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2015-03-25 00:13:29,203 ERROR [Worker-1] - System.err - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2015-03-25 00:13:29,203 ERROR [Worker-1] - System.err - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2015-03-25 07:53:09,552 ERROR [Worker-0] - System.err - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2015-03-25 07:53:09,553 ERROR [Worker-0] - System.err - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2015-03-25 07:53:09,553 ERROR [Worker-0] - System.err - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2015-03-25 17:04:11,149 ERROR [Worker-12] - System.err - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2015-03-25 17:04:11,150 ERROR [Worker-12] - System.err - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2015-03-25 17:04:11,151 ERROR [Worker-12] - System.err - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2015-03-25 17:14:01,753  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-25 17:17:07,392 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2015-03-25 17:17:07,393 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2015-03-25 17:17:07,393 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
