@@ -102,25 +102,11 @@ object Movies {
      
      val moviesAndRatings = splittedMoviesMap.join(splittedRatingsMap)
      
-     val moviesAndRatingsByUser = moviesAndRatings.values.map(x => (x._2._1, (x._1._1, (x._1._2, x._2._2))))
-     println ("******************"+moviesAndRatingsByUser.first())
-     //userId -> (Title, Genre, Rating)
-     //(2,(Bonnie and Clyde (1967),Crime|Drama,3))
-     
-     val res = splittedUsersMap.join(moviesAndRatingsByUser).groupByKey
+     val moviesAndRatingsByUser = moviesAndRatings.values.map(x => (x._2._1, (x._1._1, x._1._2, x._2._2)))
+     val res = splittedUsersMap.join(moviesAndRatingsByUser)
      println ("-.-.-.-.-.-.-.-.-.-.-."+res.first())
-     //printIt
      
-    
-     def printIt {
-      res.foreach(a => println(a))
-    }     
-    
-    
-     def amountOfMovies {
-      
-      
-    }
+     val ready = res.flatten
      
      
      //val userWithRatingscomplex = splittedUsersMap.join(splittedRatingsMapByUser).groupByKey()
@@ -162,8 +148,6 @@ object Movies {
     
     */
       
-     
-     
       
   }
 

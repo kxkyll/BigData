@@ -116,7 +116,10 @@ object Movies {
       res.foreach(a => println(a))
     }     
     
-    
+    /*val rea = res.map(x => ((x._1), (x._2.toSet)))
+    println ("pppppppppppppppp"+rea.first());
+    * 
+    */
      def amountOfMovies {
       
       

@@ -109,14 +109,13 @@ object Movies {
      
      val res = splittedUsersMap.join(moviesAndRatingsByUser).groupByKey
      println ("-.-.-.-.-.-.-.-.-.-.-."+res.first())
-     //printIt
-     
+     printIt
     
      def printIt {
       res.foreach(a => println(a))
     }     
     
-    
+    val rea = res.map(x => ((x._1), (x._2.toSet)))
      def amountOfMovies {
       
       
