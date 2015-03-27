@@ -77,12 +77,10 @@ object Movies {
      def numberOfWatchedMovies = {
       
       val adults = res.filter(x => x._2._1._2 >= 18)
-      //println ("^^^^^^^^^^^^^^^^^^"+adults.first)
+      println ("^^^^^^^^^^^^^^^^^^"+adults.first)
     
       val employedAdults = adults.filter(x => x._2._1._3 != 18 && x._2._1._3 != 4)
-      //val tenAdults = employedAdults.take(10)
-      //println(tenAdults.foreach(x => println(x)))
-      val sum = employedAdults.map(x => x._2._2.size).reduce(_+_)
+      val sum = adults.map(x => x._2._2.size).reduce(_+_)
       sum
         
     }
