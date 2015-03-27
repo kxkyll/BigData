@@ -72,15 +72,14 @@ object Movies {
      //userID,(Gender, Age, Occupation)(Title, Genre, Rating)...
      //(4904,((M,50,15),CompactBuffer((Mad Max (1979),Action|Sci-Fi,5), (Casablanca (1942),Drama|Romance|War,5)... 
      
-     println ("Adults have watched: "+numberOfWatchedMovies +" movies in total")
+    numberOfWatchedMovies
     
-     def numberOfWatchedMovies = {
+     def numberOfWatchedMovies {
       
       val adults = res.filter(x => x._2._1._2 >= 18)
       println ("^^^^^^^^^^^^^^^^^^"+adults.first)
       
-      val sum = adults.map(x => x._2._2.size).reduce(_+_)
-      sum
+      val sum = adults.map(x => x._2._2.size)
       
       
         
