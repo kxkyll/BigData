@@ -31,9 +31,9 @@ object Movies {
     val conf = new SparkConf().setAppName("Movies").setMaster("local[2]")
     val sc = new SparkContext(conf)
     // read the files as RDDs and cache them
-    val movies = sc.textFile(path+"movies.dat", 2).cache()
-    val users = sc.textFile(path+"users.dat", 2).cache()
-    val ratings = sc.textFile(path+"ratings.dat", 2).cache()
+    val movies = sc.textFile(path+"movies.dat", 2)//.cache()
+    val users = sc.textFile(path+"users.dat", 2)//.cache()
+    val ratings = sc.textFile(path+"ratings.dat", 2)//.cache()
     
     //val movieMap = movies.map { x => x.split("::")}
     //val usersMap = users.map { x => x.split("::") }
@@ -56,29 +56,25 @@ object Movies {
      //userId -> (movieId, Rating, Timestamp)
     
      
+     
      val moviesAndRatings = splittedMoviesMap.join(splittedRatingsMap)
      println (":::::::::::::::::::::::::"+moviesAndRatings.values.first())
-     //Title, Genre, userID, Rating, Timestamp
+     //(Title, Genre), (userID, Rating, Timestamp)
      //((Bonnie and Clyde (1967),Crime|Drama),(2,3,978298813))
      
-     val moviesAndRatingsByUser = moviesAndRatings.values.map(x => (x._2._1, (x._1._1, (x._1._2, x._2._2))))
+     val moviesAndRatingsByUser = moviesAndRatings.values.map(x => (x._2._1, (x._1._1, x._1._2, x._2._2))).groupByKey
      println ("******************"+moviesAndRatingsByUser.first())
-     //userId -> (Title, Genre, Rating)
-     //(2,(Bonnie and Clyde (1967),Crime|Drama,3))
+     //userId -> CompactBuffer(Title, Genre, Rating)
+     //(4904,CompactBuffer((Mad Max (1979),Action|Sci-Fi,5), (Casablanca (1942),Drama|Romance|War,5)
      
-     val res = splittedUsersMap.join(moviesAndRatingsByUser).groupByKey
+     val res = splittedUsersMap.join(moviesAndRatingsByUser)
      println ("-.-.-.-.-.-.-.-.-.-.-."+res.first())
      //userID,(Gender, Age, Occupation)(Title, Genre, Rating)...
-     //(2,CompactBuffer(((M,56,16),(Bonnie and Clyde (1967),(Crime|Drama,3))), ((M,56,16),(Maverick (1994),(Action|Comedy|Western,4))),... 
+     //(4904,((M,50,15),CompactBuffer((Mad Max (1979),Action|Sci-Fi,5), (Casablanca (1942),Drama|Romance|War,5)... 
      
-    val res1 = res.map(x => (x._1, x._2.toSet ))
-    println(""""""""""""""""""+res1.first())
-    //userID, Set(Gender, Age, Occupation)( Title, Genre,Rating)
     
     
      def numberOfWatchedMovies {
-      val adultAge = 18
-      //val res.filter(x => (x.1_.2 >= adultAge))
         
     }
    
