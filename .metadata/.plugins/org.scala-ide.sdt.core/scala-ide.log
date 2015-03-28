@@ -68,3 +68,147 @@ scala.reflect.internal.FatalError: ThisType(method main) for sym which is not a 
 2015-03-27 11:20:57,431  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
 2015-03-27 11:29:13,031  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
 2015-03-27 11:32:35,037  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 10:58:49,442 ERROR [main] - System.err - java.lang.IllegalArgumentException: Index out of bounds
+2015-03-28 10:58:49,443 ERROR [main] - System.err - at org.eclipse.swt.SWT.error(SWT.java:4422)
+2015-03-28 10:58:49,443 ERROR [main] - System.err - at org.eclipse.swt.SWT.error(SWT.java:4356)
+2015-03-28 10:58:49,443 ERROR [main] - System.err - at org.eclipse.swt.SWT.error(SWT.java:4327)
+2015-03-28 10:58:49,443 ERROR [main] - System.err - at org.eclipse.swt.custom.StyledText.getOffsetAtLine(StyledText.java:4381)
+2015-03-28 10:58:49,443 ERROR [main] - System.err - at org.eclipse.jface.text.JFaceTextUtil.getPartialTopIndex(JFaceTextUtil.java:103)
+2015-03-28 10:58:49,443 ERROR [main] - System.err - at org.eclipse.jface.text.source.OverviewRuler$WidgetInfos.<init>(OverviewRuler.java:360)
+2015-03-28 10:58:49,443 ERROR [main] - System.err - at org.eclipse.jface.text.source.OverviewRuler.doPaint(OverviewRuler.java:764)
+2015-03-28 10:58:49,443 ERROR [main] - System.err - at org.eclipse.jface.text.source.OverviewRuler.doubleBufferPaint(OverviewRuler.java:680)
+2015-03-28 10:58:49,443 ERROR [main] - System.err - at org.eclipse.jface.text.source.OverviewRuler.access$12(OverviewRuler.java:656)
+2015-03-28 10:58:49,443 ERROR [main] - System.err - at org.eclipse.jface.text.source.OverviewRuler$3.paintControl(OverviewRuler.java:595)
+2015-03-28 10:58:49,443 ERROR [main] - System.err - at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:230)
+2015-03-28 10:58:49,443 ERROR [main] - System.err - at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+2015-03-28 10:58:49,443 ERROR [main] - System.err - at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4454)
+2015-03-28 10:58:49,443 ERROR [main] - System.err - at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1388)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1412)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1397)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.swt.widgets.Control.gtk_draw(Control.java:3195)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.swt.widgets.Canvas.gtk_draw(Canvas.java:171)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.swt.widgets.Widget.windowProc(Widget.java:2088)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.swt.widgets.Control.windowProc(Control.java:5534)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.swt.widgets.Display.windowProc(Display.java:4668)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.swt.internal.gtk.OS._gtk_main_do_event(Native Method)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.swt.internal.gtk.OS.gtk_main_do_event(OS.java:9106)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.swt.widgets.Display.eventProc(Display.java:1253)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.swt.internal.gtk.OS._g_main_context_iteration(Native Method)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.swt.internal.gtk.OS.g_main_context_iteration(OS.java:2477)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.swt.widgets.Shell.setVisible(Shell.java:2261)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.swt.widgets.Shell.open(Shell.java:1587)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.jface.window.Window.open(Window.java:804)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.ui.internal.statushandlers.InternalDialog.open(InternalDialog.java:334)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.ui.internal.statushandlers.WorkbenchStatusDialogManagerImpl.doAddStatusAdapter(WorkbenchStatusDialogManagerImpl.java:271)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.ui.internal.statushandlers.WorkbenchStatusDialogManagerImpl.addStatusAdapter(WorkbenchStatusDialogManagerImpl.java:198)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.ui.statushandlers.WorkbenchStatusDialogManager.addStatusAdapter(WorkbenchStatusDialogManager.java:158)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.ui.statushandlers.WorkbenchErrorHandler.showStatusAdapter(WorkbenchErrorHandler.java:105)
+2015-03-28 10:58:49,444 ERROR [main] - System.err - at org.eclipse.ui.statushandlers.WorkbenchErrorHandler.handle(WorkbenchErrorHandler.java:59)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.ui.internal.ide.IDEWorkbenchErrorHandler.handle(IDEWorkbenchErrorHandler.java:108)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.ui.internal.WorkbenchErrorHandlerProxy.handle(WorkbenchErrorHandlerProxy.java:37)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:189)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.ui.internal.JFaceUtil$3.show(JFaceUtil.java:73)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.jface.util.SafeRunnable.handleException(SafeRunnable.java:68)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.core.runtime.SafeRunner.handleException(SafeRunner.java:75)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:44)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:178)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.jface.viewers.Viewer.fireSelectionChanged(Viewer.java:160)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.jface.text.TextViewer.fireSelectionChanged(TextViewer.java:2733)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.jface.text.TextViewer.selectionChanged(TextViewer.java:2712)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.jface.text.TextViewer.setSelectedRange(TextViewer.java:2397)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.jface.text.source.SourceViewer.setRangeIndication(SourceViewer.java:1108)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.jface.text.source.projection.ProjectionViewer.setRangeIndication(ProjectionViewer.java:1309)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.ui.texteditor.AbstractTextEditor.setHighlightRange(AbstractTextEditor.java:6251)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor.setSelection(JavaEditor.java:2342)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor.setSelection(JavaEditor.java:2407)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.revealInEditor(EditorUtility.java:252)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.jdt.ui.JavaUI.revealInEditor(JavaUI.java:734)
+2015-03-28 10:58:49,445 ERROR [main] - System.err - at org.eclipse.jdt.ui.actions.OpenAction.run(OpenAction.java:270)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.jdt.ui.actions.OpenAction.run(OpenAction.java:233)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.jdt.ui.actions.SelectionDispatchAction.dispatchRun(SelectionDispatchAction.java:275)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.jdt.ui.actions.SelectionDispatchAction.run(SelectionDispatchAction.java:251)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.jdt.internal.ui.packageview.PackageExplorerActionGroup.handleOpen(PackageExplorerActionGroup.java:376)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart$4.open(PackageExplorerPart.java:538)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.ui.OpenAndLinkWithEditorHelper$InternalListener.open(OpenAndLinkWithEditorHelper.java:48)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.jface.viewers.StructuredViewer$2.run(StructuredViewer.java:853)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:178)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.jface.viewers.StructuredViewer.fireOpen(StructuredViewer.java:850)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.jface.viewers.StructuredViewer.handleOpen(StructuredViewer.java:1142)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.jface.viewers.StructuredViewer$6.handleOpen(StructuredViewer.java:1249)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.jface.util.OpenStrategy.fireOpenEvent(OpenStrategy.java:278)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.jface.util.OpenStrategy.access$2(OpenStrategy.java:272)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:313)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4454)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1388)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3799)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3409)
+2015-03-28 10:58:49,446 ERROR [main] - System.err - at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at java.lang.reflect.Method.invoke(Method.java:606)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+2015-03-28 10:58:49,447 ERROR [main] - System.err - at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
+2015-03-28 11:05:57,908  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 11:06:48,337  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 11:07:57,198  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 11:17:55,723 ERROR [Worker-8] - System.err - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2015-03-28 11:17:55,723 ERROR [Worker-8] - System.err - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2015-03-28 11:17:55,723 ERROR [Worker-8] - System.err - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2015-03-28 11:20:59,380 ERROR [main] - org.scala-ide.sdt.core - org.scala-ide.sdt.core - org.scala-ide.sdt.core - 0 - Throwable during asyncExec
+scala.tools.nsc.interactive.FreshRunReq
+2015-03-28 11:20:59,384 ERROR [main] - org.scala-ide.sdt.core - org.scala-ide.sdt.core - org.scala-ide.sdt.core - 0 - Incorrectly logged ControlThrowable: FreshRunReq(null)
+scala.tools.nsc.interactive.FreshRunReq
+2015-03-28 14:09:32,879  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 16:27:00,386  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 16:45:47,644 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2015-03-28 16:45:47,650 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2015-03-28 17:06:34,623  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 17:17:08,249  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 17:17:16,875  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 17:20:22,290  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 17:20:25,235  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 17:28:10,003 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2015-03-28 17:28:10,005 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2015-03-28 17:28:10,005 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2015-03-28 18:14:20,374  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 18:32:18,936 ERROR [Worker-10] - System.err - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2015-03-28 18:32:18,936 ERROR [Worker-10] - System.err - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2015-03-28 18:32:18,936 ERROR [Worker-10] - System.err - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2015-03-28 19:20:45,484  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 20:29:34,323  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 20:29:57,815  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 20:30:14,595  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 20:30:24,683  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 20:30:54,647  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 20:31:20,372  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 20:32:16,563 ERROR [Worker-1] - System.err - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2015-03-28 20:32:16,563 ERROR [Worker-1] - System.err - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2015-03-28 20:32:16,563 ERROR [Worker-1] - System.err - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2015-03-28 20:49:29,940  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 21:46:48,706  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 21:47:13,009  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 22:01:51,471  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 22:21:14,770  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 22:29:39,737  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 22:35:07,785  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2015-03-28 22:35:11,472  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
