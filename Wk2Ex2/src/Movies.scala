@@ -24,7 +24,9 @@ import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
 import org.apache.spark.rdd.RDD
 
+
 object Movies {
+  
 
   def main(args: Array[String]) {
     val path = "/home/kati/foo/BDF/" // Path to files
@@ -66,10 +68,7 @@ object Movies {
     //userID,(Gender, Age, Occupation)(Title, Genre, Rating)...
     //(4904,((M,50,15),CompactBuffer((Mad Max (1979),Action|Sci-Fi,5), (Casablanca (1942),Drama|Romance|War,5)... 
 
-    //val fin = res.map(x => x._1, )
-    //println ("Adults have watched: "+numberOfWatchedMovies +" movies in total")
-    //topTen (res)
-
+    
     def tenMovies(rdd: RDD[(Int, ((String, Int, Int), Iterable[(String, String, Int)]))]): RDD[(Int, Array[(String, Float)])] = {
       //userID,(Gender, Age, Occupation)(Title, Genre, Rating)...
       val moviesByUser = rdd.map(x => (x._1, (x._2._1._2, x._2._2)))
@@ -91,20 +90,12 @@ object Movies {
       //top.foreach(x => println("----------------------Age Group: " +x._1, x._2.foreach(y => println(y._1))))
       //return top
 
-      /*
-  return  rdd.map(x => (x._1, (x._2._1._3, x._2._2)))      // take userID, age, Set(movie, rating, genre)
-    .values                                                  // drop userID
-    .flatMap(x => x._2.map(y => ((x._1, y._1), y._2))).groupByKey  // (age, movie), rating i.e. drop genre
-    .mapValues(x => (x.reduce(_ + _).toFloat / x.size))            // calculate avg ratings
-    .map(x => (x._1._1, (x._1._2, x._2))).groupByKey               // reorganize to have age group as first, then group by it
-    .map(x => (x._1, x._2.toArray.sortBy(_._2)(Ordering[Float].reverse) // make an array of Set(movie, rating), order it by rating
-        .take(10))).sortByKey()                                        //for each age group take 10 then sort the resulting RDD by age group
-    */
+      
     }
 
-    val jepa = tenMovies(res)
+    val tenMoviesByAge = tenMovies(res)
 
-    //topMovies(res)
+    printTenMoviewByAge(tenMoviesByAge)    
 
     def numberOfWatchedMovies = {
 
@@ -116,42 +107,16 @@ object Movies {
       sum
 
     }
-
-    def topTen(rdd: RDD[(Int, ((String, Int, Int), Iterable[(String, Int, String)]))]): RDD[(Int, Array[(String, Float)])] = {
-      //val onlyMovies = res.flatMap(x => x._2._2)
-      val moviesByUserAge = res.map(x => (x._2._1._2, x._2._2))
-      println(moviesByUserAge.first)
-      //age, (title, genre, rating)
-      //(50,CompactBuffer((Mad Max (1979),Action|Sci-Fi,5), (Casablanca (1942),Drama|Romance|War,5),
-
-      // take userID, age, Set(movie, rating, genre)
-      return res.map(x => (x._1, (x._2._1._3, x._2._2))).values.flatMap(x => x._2.map(y => ((x._1, y._1), y._2))).groupByKey.mapValues(x => (x.reduce(_ + _).toFloat / x.size)).map(x => (x._1._1, (x._1._2, x._2))).groupByKey.map(x => (x._1, x._2.toArray.sortBy(_._2)(Ordering[Float].reverse).take(10))).sortByKey() //for each age group take 10 then sort the resulting RDD by age group
-
+    
+    def printTenMoviewByAge(tenMoviesByAge:RDD[(Int,  Array[(String, Float)])]){
+     
+      println(tenMoviesByAge.first._2.foreach(y => println("Age: " + tenMoviesByAge.first._1 + " " + y._1 + " " + y._2)))
+      
+      
     }
-    //RDD[((Int, String, Int, Int), Set[(String, String, Int)])])
-    //userId, Gender, Age, Occupation (title, genre, rating)
-    def topMovies(mov: RDD[(Int, ((String, Int, Int), Iterable[(String, String, Int)]))]): RDD[(Int, Array[(String, Float)])] = {
-      // userId, (Gender, Age, Occupation) (Title, Genre, Rating)
-      //    val allAgesAndMovies = mov.map(x => (x._1._3, x._2) )
-      val allAgesAndMovies = mov.map(x => (x._2._1._2, x._2._2))
-      //println("_____________________________allAgesAndMovies "+allAgesAndMovies.first)
-      // age, (movie, genre, rating)
-      //(50,CompactBuffer((Mad Max (1979),Action|Sci-Fi,5), (Casablanca (1942),Drama|Romance|War,5)
-      val flatAgesAndMovies = allAgesAndMovies.flatMap(x => x._2.map(y => ((x._1, y._1), (y._3))))
-      //println ("_____________________________flatAgesAndMovies "+flatAgesAndMovies.first)
-      //((50,Mad Max (1979)),5)
-      val groupedMovies = flatAgesAndMovies.groupByKey().mapValues(x => x.reduce(_ + _) / x.size.toFloat)
-      //println("_____________________________groupedMovies "+groupedMovies.first)
-      //((45,And God Created Woman (1988)),2.0)
-      val byAge = groupedMovies.map(x => (x._1._1, (x._1._2, x._2))).groupByKey()
-      //println("byAge "+byAge.first)
-      //(56,CompactBuffer((Blue Lagoon, The (1980),2.25), (Buena Vista Social Club (1999),4.4736843)
-      val ten = byAge.map(x => (x._1, x._2.toArray.sortBy(_._2)(Ordering[Float].reverse).take(10))).sortByKey()
-      //println("ten "+ten.first)
-      val tenSorted = ten.sortByKey()
-      //tenSorted.foreach(x => println("Age Group: " +x._1, x._2.foreach(y => println(y._1))))
-      return tenSorted
-    }
+
+    
+    
 
   }
 
