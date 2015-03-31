@@ -32,11 +32,13 @@ object Movies {
     val path = "/home/kati/foo/BDF/" // Path to files
     val conf = new SparkConf().setAppName("Movies").setMaster("local[2]")
     val sc = new SparkContext(conf)
+    
     // read the files as RDDs and cache them
     val movies = sc.textFile(path + "movies.dat", 2) //.cache()
     val users = sc.textFile(path + "users.dat", 2) //.cache()
     val ratings = sc.textFile(path + "ratings.dat", 2) //.cache()
 
+    //Exercise 2 
     val splittedUsersMap = users.map(line => line.split("::")).map(x => (x(0).toInt, (x(1), x(2).toInt, x(3).toInt)))
     //println ("........-----splittedUsersMap" +splittedUsersMap.first() )
     //userId -> (gender, age, occupation) 
@@ -68,7 +70,23 @@ object Movies {
     //userID,(Gender, Age, Occupation)(Title, Genre, Rating)...
     //(4904,((M,50,15),CompactBuffer((Mad Max (1979),Action|Sci-Fi,5), (Casablanca (1942),Drama|Romance|War,5)... 
 
+
+    // exercise 3 sum of movies that employed adults have watched
+    def numberOfWatchedMovies = {
+      // take adult age groups
+      val adults = res.filter(x => x._2._1._2 >= 18)
+      //println ("^^^^^^^^^^^^^^^^^^"+adults.first)
+      // take only employed adulta
+      val employedAdults = adults.filter(x => x._2._1._3 != 18 && x._2._1._3 != 4)
+      // calculaate the sum of movies
+      val sum = employedAdults.map(x => x._2._2.size).reduce(_ + _)
+      sum
+
+    }
+
     
+    
+    //exercise 4 ten best rated movies per age group
     def tenMovies(rdd: RDD[(Int, ((String, Int, Int), Iterable[(String, String, Int)]))]): RDD[(Int, Array[(String, Float)])] = {
       //userID,(Gender, Age, Occupation)(Title, Genre, Rating)...
       val moviesByUser = rdd.map(x => (x._1, (x._2._1._2, x._2._2)))
@@ -82,39 +100,29 @@ object Movies {
       val averageByAge = averageRatings.map(x => (x._1._1, (x._1._2, x._2))).groupByKey
       //age (title, average)
       val sortedTen = averageByAge.map(x => (x._1, x._2.toArray.sortBy(_._2)(Ordering[Float].reverse).take(10))).sortByKey()
-      println("::::::::::::::::::::::::::sorted.first " + sortedTen.first._2.foreach(y => println("Age: " + sortedTen.first._1 + " " + y._1 + " " + y._2)))
+      //println("::::::::::::::::::::::::::sortedTen.first " + sortedTen.first._2.foreach(y => println("Age: " + sortedTen.first._1 + " " + y._1 + " " + y._2)))
 
       return sortedTen
-      //val top = sorted.take(10)
-      //println("::::::::::::::::::::::::::top " +top(1)._2.foreach(y => println("Age: " +top(1)._1 +" "+y._1 +" "+y._2)))
-      //top.foreach(x => println("----------------------Age Group: " +x._1, x._2.foreach(y => println(y._1))))
-      //return top
-
-      
-    }
-
-    val tenMoviesByAge = tenMovies(res)
-
-    printTenMoviewByAge(tenMoviesByAge)    
-
-    def numberOfWatchedMovies = {
-
-      val adults = res.filter(x => x._2._1._2 >= 18)
-      //println ("^^^^^^^^^^^^^^^^^^"+adults.first)
-
-      val employedAdults = adults.filter(x => x._2._1._3 != 18 && x._2._1._3 != 4)
-      val sum = employedAdults.map(x => x._2._2.size).reduce(_ + _)
-      sum
-
+            
     }
     
+    //exercise 4 printing
     def printTenMoviewByAge(tenMoviesByAge:RDD[(Int,  Array[(String, Float)])]){
      
-      println(tenMoviesByAge.first._2.foreach(y => println("Age: " + tenMoviesByAge.first._1 + " " + y._1 + " " + y._2)))
-      
-      
+      val all = tenMoviesByAge.collect()
+      all.map(x => println(x._2.foreach(y => println("Age: " + x._1 + " " + y._1 + " " + y._2))))
+  
     }
 
+    // calling exercise 3
+    println ("Employed adults have watched "+numberOfWatchedMovies +" " +"movies")
+
+    // calling exercise 4     
+    val tenMoviesByAge = tenMovies(res)
+    printTenMoviewByAge(tenMoviesByAge)    
+
+    
+    
     
     
 

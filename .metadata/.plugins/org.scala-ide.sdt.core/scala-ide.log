@@ -215,3 +215,11 @@ scala.tools.nsc.interactive.FreshRunReq
 2015-03-31 16:42:00,990 ERROR [Worker-0] - System.err - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 2015-03-31 16:42:00,992 ERROR [Worker-0] - System.err - SLF4J: Defaulting to no-operation (NOP) logger implementation
 2015-03-31 16:42:00,992 ERROR [Worker-0] - System.err - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2015-03-31 20:08:28,126 ERROR [Worker-0] - System.err - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2015-03-31 20:08:28,127 ERROR [Worker-0] - System.err - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2015-03-31 20:08:28,127 ERROR [Worker-0] - System.err - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2015-03-31 20:15:32,784 ERROR [main] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2015-03-31 20:15:32,785 ERROR [main] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2015-03-31 20:18:21,113 ERROR [Worker-0] - System.err - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2015-03-31 20:18:21,114 ERROR [Worker-0] - System.err - SLF4J: Defaulting to no-operation (NOP) logger implementation
+2015-03-31 20:18:21,114 ERROR [Worker-0] - System.err - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
