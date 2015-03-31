@@ -223,3 +223,26 @@ scala.tools.nsc.interactive.FreshRunReq
 2015-03-31 20:18:21,113 ERROR [Worker-0] - System.err - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 2015-03-31 20:18:21,114 ERROR [Worker-0] - System.err - SLF4J: Defaulting to no-operation (NOP) logger implementation
 2015-03-31 20:18:21,114 ERROR [Worker-0] - System.err - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2015-03-31 20:49:51,502  WARN [Worker-10] - ScalaProject - Project Wk2 has platform default sourceLevel.
+2015-03-31 20:49:51,504  WARN [Worker-10] - ScalaProject - Project Wk2 runs on platform default installation.
+2015-03-31 20:50:24,933  WARN [Worker-10] - ScalaProject - Project Wk2 has platform default sourceLevel.
+2015-03-31 20:50:24,933  WARN [Worker-10] - ScalaProject - Project Wk2 runs on platform default installation.
+2015-03-31 20:50:29,233 ERROR [main] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2015-03-31 20:50:29,233 ERROR [main] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2015-03-31 20:50:29,261 ERROR [main] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2015-03-31 20:50:29,261 ERROR [main] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2015-03-31 20:50:29,302  WARN [Worker-2] - ScalaProject - Project Wk2 has platform default sourceLevel.
+2015-03-31 20:50:29,309  WARN [Worker-2] - ScalaProject - Project Wk2 runs on platform default installation.
+2015-03-31 20:51:20,245  WARN [Worker-4] - ScalaProject - Project Wk2 has platform default sourceLevel.
+2015-03-31 20:51:20,245  WARN [Worker-4] - ScalaProject - Project Wk2 runs on platform default installation.
+2015-03-31 20:53:14,541  WARN [Worker-4] - ScalaProject - Project Wk2 has platform default sourceLevel.
+2015-03-31 20:53:14,542  WARN [Worker-4] - ScalaProject - Project Wk2 runs on platform default installation.
+2015-03-31 20:53:37,030  WARN [Worker-9] - ScalaProject - Project Wk2 has platform default sourceLevel.
+2015-03-31 20:53:37,030  WARN [Worker-9] - ScalaProject - Project Wk2 runs on platform default installation.
+2015-03-31 20:53:47,984  WARN [Worker-8] - ScalaProject - Project Wk2 has platform default sourceLevel.
+2015-03-31 20:53:47,985  WARN [Worker-8] - ScalaProject - Project Wk2 runs on platform default installation.
+2015-03-31 20:55:08,947  WARN [Worker-9] - ScalaProject - Project Wk2 has platform default sourceLevel.
+2015-03-31 20:55:08,947  WARN [Worker-9] - ScalaProject - Project Wk2 runs on platform default installation.
+2015-03-31 20:56:13,523  WARN [main] - org.scala-ide.sdt.core - org.scala-ide.sdt.core - org.scala-ide.sdt.core - 0 - Preference scala.compiler.sourceLevel was uninitialized for Wk2, setting default to 2.11.
+2015-03-31 21:03:23,791  WARN [Worker-6] - ScalaProject - Project ExSet2 has platform default sourceLevel.
+2015-03-31 21:03:23,792  WARN [Worker-6] - ScalaProject - Project ExSet2 runs on platform default installation.

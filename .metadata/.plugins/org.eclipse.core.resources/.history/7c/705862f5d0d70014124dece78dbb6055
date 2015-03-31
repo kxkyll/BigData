@@ -1,0 +1,28 @@
+package bdf.exercise2.katikyllonen
+
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
+import org.apache.spark.SparkConf
+import org.apache.spark.rdd.RDD
+
+object Solutions {
+  def main(args: Array[String]) {
+    val path = "/home/kati/foo/BDF/" // Path to files
+    val conf = new SparkConf().setAppName("Movies").setMaster("local[2]")
+    val sc = new SparkContext(conf)
+   
+    /* Run exercise2 code */
+    exercise2(sc)
+    /* Run exercise3 code */
+    exercise3(sc)
+    /* Run exercise4 code */
+    exercise4(sc)
+    /* Run exercise5 code */
+    exercise5(sc)
+    /* Run exercise6 code */
+    exercise6(sc)
+    
+    
+  }
+
+}

@@ -1,0 +1,91 @@
+package bdf.exercise2.katikyllonen
+
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
+import org.apache.spark.SparkConf
+import org.apache.spark.rdd.RDD
+
+object Solutions {
+    val path = "/home/kati/foo/BDF/" // Path to files
+      
+  def main(args: Array[String]) {
+    //val path = "/home/kati/foo/BDF/" // Path to files
+    val conf = new SparkConf().setAppName("Movies").setMaster("local[2]")
+    val sc = new SparkContext(conf)
+   
+    /* Run exercise2 code */
+    val result = exercise2(sc)
+    /* Run exercise3 code */
+    exercise3(sc)
+    /* Run exercise4 code */
+    exercise4(sc)
+    /* Run exercise5 code */
+    exercise5(sc)
+    /* Run exercise6 code */
+    exercise6(sc)
+    
+    
+  }
+  
+    //: RDD[(Int, Array[(String, Float)])]
+  def exercise2 (sc: SparkContext: RDD[(Int,((String,Int,Int),Iterable[(String,String,Int)]))]) ={
+    // read the files as RDDs and cache them
+    val movies = sc.textFile(path + "movies.dat", 2) //.cache()
+    val users = sc.textFile(path + "users.dat", 2) //.cache()
+    val ratings = sc.textFile(path + "ratings.dat", 2) //.cache()
+
+    //Exercise 2 
+    val splittedUsersMap = users.map(line => line.split("::")).map(x => (x(0).toInt, (x(1), x(2).toInt, x(3).toInt)))
+    //println ("........-----splittedUsersMap" +splittedUsersMap.first() )
+    //userId -> (gender, age, occupation) 
+
+    val splittedMoviesMap = movies.map(line => line.split("::")).map(x => (x(0).toInt, (x(1), x(2))))
+    //println ("........-----splittedMoviesMap" +splittedMoviesMap.first() )
+    // //movieId -> (Title, Genre)
+
+    val splittedRatingsMap = ratings.map(line => line.split("::")).map(x => (x(1).toInt, (x(0).toInt, x(2).toInt, x(3).toInt)))
+    //println ("........-----splittedRatingsMap" +splittedRatingsMap.first() )
+    //movieId -> (UserId, Rating, Timestamp)
+
+    val splittedRatingsMapByUser = ratings.map(line => line.split("::")).map(x => (x(0).toInt, (x(1).toInt, x(2).toInt, x(3).toInt)))
+    //println ("........-----splittedRatingsMap" +splittedRatingsMap.first() )
+    //userId -> (movieId, Rating, Timestamp)
+
+    val moviesAndRatings = splittedMoviesMap.join(splittedRatingsMap)
+    //println (":::::::::::::::::::::::::"+moviesAndRatings.values.first())
+    //(Title, Genre), (userID, Rating, Timestamp)
+    //((Bonnie and Clyde (1967),Crime|Drama),(2,3,978298813))
+
+    val moviesAndRatingsByUser = moviesAndRatings.values.map(x => (x._2._1, (x._1._1, x._1._2, x._2._2))).groupByKey
+    //println ("******************"+moviesAndRatingsByUser.first())
+    //userId -> CompactBuffer(Title, Genre, Rating)
+    //(4904,CompactBuffer((Mad Max (1979),Action|Sci-Fi,5), (Casablanca (1942),Drama|Romance|War,5)
+
+    //RDD[(Int,((String,Int,Int),Iterable[(String,String,Int)]))]
+    
+    
+    val res = splittedUsersMap.join(moviesAndRatingsByUser)
+    //println ("-.-.-.-.-.-.-.-.-.-.-."+res.first())
+    //userID,(Gender, Age, Occupation)(Title, Genre, Rating)...
+    //(4904,((M,50,15),CompactBuffer((Mad Max (1979),Action|Sci-Fi,5), (Casablanca (1942),Drama|Romance|War,5)... 
+    return res
+    
+  }
+  
+  def exercise3 (sc: SparkContext){
+    
+  }
+  
+  def exercise4 (sc: SparkContext){
+    
+  }
+  
+  def exercise5 (sc: SparkContext){
+    
+  }
+  
+  def exercise6 (sc: SparkContext){
+    
+  }
+
+}
